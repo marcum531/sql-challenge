@@ -44,4 +44,20 @@ SELECT first_name, last_name, hire_date
 FROM employees
 where EXTRACT(year FROM "hire_date") = 1986;
 
+SELECT departments.dept_no, departments.dept_name, dept_manager.emp_no,
+employees.last_name, employees.first_name
+FROM departments
+INNER JOIN dept_emp ON departments.dept_no = dept_emp.dept_no
+INNER JOIN dept_manager ON dept_emp.emp_no = dept_manager.emp_no
+INNER JOIN employees on dept_manager.emp_no = employees.emp_no;
 
+SELECT employees.emp_no, departments.dept_no, departments.dept_name,
+employees.last_name, employees.first_name
+FROM departments
+INNER JOIN dept_emp ON departments.dept_no = dept_emp.dept_no
+INNER JOIN employees ON dept_emp.emp_no = employees.emp_no;
+
+SELECT first_name, last_name, sex
+FROM employees
+WHERE first_name = 'Hercules'
+AND last_name LIKE 'B%';
