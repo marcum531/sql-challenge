@@ -5,7 +5,7 @@ CREATE TABLE departments (
 CREATE TABLE dept_emp (
 			emp_no INT, 
 			dept_no VARCHAR);
-			
+
 CREATE TABLE dept_manager (
 			dept_no VARCHAR,
 			emp_no INT);
@@ -61,3 +61,9 @@ SELECT first_name, last_name, sex
 FROM employees
 WHERE first_name = 'Hercules'
 AND last_name LIKE 'B%';
+
+SELECT employees.emp_no, departments.dept_no, departments.dept_name,
+employees.last_name, employees.first_name, as employees_dept
+FROM departments
+INNER JOIN dept_emp ON departments.dept_no = dept_emp.dept_no
+INNER JOIN employees ON dept_emp.emp_no = employees.emp_no;
