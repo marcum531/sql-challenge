@@ -45,6 +45,7 @@ CREATE TABLE titles (
 			title_id VARCHAR NOT NULL,
 			title VARCHAR NOT NULL,
 			PRIMARY KEY (title_id));
+			
 -- Querying all information from each table 
 SELECT * FROM employees;
 SELECT * FROM departments;
